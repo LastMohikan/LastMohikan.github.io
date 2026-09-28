@@ -888,32 +888,57 @@
       ].join("\n");
     }
 
+    function downloadViaBlob(filename, text){
+      try{
+        var blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+        return true;
+      } catch(e){
+        return false;
+      }
+    }
+
     function downloadCV(){
       var lang = window.CURRENT_LANG || 'tr';
-      if(!window.claude || !window.claude.use){
-        printText(L("İndirme bu görünümde desteklenmiyor. h.burak6787@gmail.com adresinden isteyebilirsin.",
-                     "Downloads aren't supported in this view. You can request it at h.burak6787@gmail.com."));
+      var filename = lang === 'en' ? 'Halil_Burak_Yildirim_CV_EN.md' : 'Halil_Burak_Yildirim_CV.md';
+
+      if(window.claude && window.claude.use){
+        printText(L("Hazırlanıyor...", "Preparing..."));
+        window.claude.use('downloads').then(function(downloads){
+          if(!downloads){
+            var ok = downloadViaBlob(filename, buildResumeMarkdown(lang));
+            printText(ok ? L("İndirildi: ", "Downloaded: ") + filename
+                         : L("İndirme başarısız oldu. h.burak6787@gmail.com adresinden isteyebilirsin.",
+                             "Download failed. You can request it at h.burak6787@gmail.com."));
+            return;
+          }
+          return downloads.save({ filename: filename, data: buildResumeMarkdown(lang) }).then(function(){
+            printText(L("İndirildi: ", "Downloaded: ") + filename);
+          });
+        }).catch(function(err){
+          if(err && err.code === 'declined'){
+            printText(L("İndirme iptal edildi.", "Download cancelled."));
+          } else {
+            var ok = downloadViaBlob(filename, buildResumeMarkdown(lang));
+            printText(ok ? L("İndirildi: ", "Downloaded: ") + filename
+                         : L("İndirme başarısız oldu. h.burak6787@gmail.com adresinden isteyebilirsin.",
+                             "Download failed. You can request it at h.burak6787@gmail.com."));
+          }
+        });
         return;
       }
-      printText(L("Hazırlanıyor...", "Preparing..."));
-      window.claude.use('downloads').then(function(downloads){
-        if(!downloads){
-          printText(L("İndirme bu görünümde kullanılamıyor. h.burak6787@gmail.com adresinden isteyebilirsin.",
-                       "Downloads aren't available in this view. You can request it at h.burak6787@gmail.com."));
-          return;
-        }
-        var filename = lang === 'en' ? 'Halil_Burak_Yildirim_CV_EN.md' : 'Halil_Burak_Yildirim_CV.md';
-        return downloads.save({ filename: filename, data: buildResumeMarkdown(lang) }).then(function(){
-          printText(L("İndirildi: ", "Downloaded: ") + filename);
-        });
-      }).catch(function(err){
-        if(err && err.code === 'declined'){
-          printText(L("İndirme iptal edildi.", "Download cancelled."));
-        } else {
-          printText(L("İndirme başarısız oldu. h.burak6787@gmail.com adresinden isteyebilirsin.",
+
+      var ok = downloadViaBlob(filename, buildResumeMarkdown(lang));
+      printText(ok ? L("İndirildi: ", "Downloaded: ") + filename
+                   : L("İndirme başarısız oldu. h.burak6787@gmail.com adresinden isteyebilirsin.",
                        "Download failed. You can request it at h.burak6787@gmail.com."));
-        }
-      });
     }
 
     var QA_TOPICS = [
