@@ -1,0 +1,1085 @@
+<title>Halil Burak Yıldırım</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:      #0a0e13;
+    --surface: #0d1117;
+    --panel:   #161b22;
+    --line:    #21262d;
+    --text-hi: #e6edf3;
+    --text-mid:#8b98a5;
+    --text-low:#525b66;
+    --green:   #3fb950;
+    --blue:    #58a6ff;
+    --amber:   #d29922;
+    --keyblue: #79c0ff;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 30px -14px rgba(0,0,0,.65);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text-hi);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    line-height:1.55;
+    cursor:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj4KPHBhdGggZD0iTTcgMzcgQyAxMyAzMywgMTMgMjcsIDE5IDI0IiBzdHJva2U9IiNlNmVkZjMiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxyZWN0IHg9IjE2IiB5PSIxMSIgd2lkdGg9IjE3IiBoZWlnaHQ9IjE1IiByeD0iMi41IiBmaWxsPSIjM2ZiOTUwIiBzdHJva2U9IiMwNDE0MGEiIHN0cm9rZS13aWR0aD0iMiIvPgo8cmVjdCB4PSIyMC41IiB5PSI1IiB3aWR0aD0iOCIgaGVpZ2h0PSI3IiByeD0iMS41IiBmaWxsPSIjM2ZiOTUwIiBzdHJva2U9IiMwNDE0MGEiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iMTkuNSIgeTE9IjExIiB4Mj0iMTkuNSIgeTI9IjQiIHN0cm9rZT0iI2YwZjZmYyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjIzIiB5MT0iMTEiIHgyPSIyMyIgeTI9IjMiIHN0cm9rZT0iI2YwZjZmYyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjI2LjUiIHkxPSIxMSIgeDI9IjI2LjUiIHkyPSIzIiBzdHJva2U9IiNmMGY2ZmMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIzMCIgeTE9IjExIiB4Mj0iMzAiIHkyPSI0IiBzdHJva2U9IiNmMGY2ZmMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPg==") 20 8, auto;
+  }
+  #netbg{
+    position:fixed; inset:0; z-index:0;
+    width:100%; height:100%;
+    pointer-events:none;
+  }
+  .page{ position:relative; z-index:1; }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  a{ color:var(--blue); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; border-radius:3px; }
+  h1,h2,h3{ text-wrap:balance; margin:0; }
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
+  .prose{ max-width:66ch; }
+
+  /* ---------- topbar ---------- */
+  header.topbar{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; height:56px; }
+  .brand{ font-family:'JetBrains Mono', monospace; font-weight:600; font-size:.9rem; color:var(--text-hi); display:flex; align-items:center; gap:8px; }
+  .brand .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 6px var(--green); }
+  nav.navlinks{ display:flex; align-items:center; gap:22px; font-size:.85rem; }
+  nav.navlinks a{ color:var(--text-mid); font-weight:500; }
+  nav.navlinks a:hover{ color:var(--text-hi); text-decoration:none; }
+  #langToggle{
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; font-weight:700;
+    color:var(--text-hi); background:var(--panel); border:1px solid var(--line);
+    border-radius:6px; padding:4px 9px; cursor:pointer;
+  }
+  #langToggle:hover{ border-color:var(--blue); }
+  @media (max-width:640px){
+    .topbar .wrap{ flex-wrap:wrap; height:auto; padding:10px 0; row-gap:8px; }
+    nav.navlinks{ gap:14px; font-size:.75rem; flex-wrap:wrap; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:76px 0 60px; }
+  .hero .grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; }
+  @media (max-width:860px){ .hero .grid{ grid-template-columns:1fr; gap:40px; } }
+  .badge{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; font-weight:600;
+    letter-spacing:.04em; text-transform:uppercase;
+    color:var(--green); background:color-mix(in srgb, var(--green) 12%, transparent);
+    border:1px solid color-mix(in srgb, var(--green) 35%, transparent);
+    padding:5px 12px; border-radius:99px; margin-bottom:20px;
+  }
+  .badge .dot{ width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+  .hero h1{ font-size:clamp(2.1rem, 4.6vw, 3.1rem); font-weight:700; letter-spacing:-.01em; }
+  .hero .tagline{
+    font-family:'JetBrains Mono', monospace; font-weight:700; font-size:clamp(1.05rem,2.4vw,1.3rem);
+    color:var(--green); margin-top:14px;
+  }
+  .hero p.lead{ margin-top:18px; color:var(--text-mid); font-size:1.05rem; max-width:52ch; }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+  .btn{
+    font-family:'JetBrains Mono', monospace; font-size:.85rem; font-weight:600;
+    padding:10px 18px; border-radius:7px; border:1px solid var(--line);
+    color:var(--text-hi); background:var(--surface); box-shadow:var(--shadow);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn:hover{ text-decoration:none; border-color:var(--blue); }
+  .btn.primary{ background:var(--green); border-color:var(--green); color:#04210f; }
+
+  /* terminal card (always dark — a terminal is a terminal) */
+  .term{
+    background:#0d1117; border:1px solid #21262d; border-radius:10px;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.5);
+    overflow:hidden; font-family:'JetBrains Mono', monospace;
+  }
+  .term .tb{ height:34px; display:flex; align-items:center; gap:7px; padding:0 12px; background:#11161c; border-bottom:1px solid #21262d; }
+  .term .tb span.d{ width:10px; height:10px; border-radius:50%; }
+  .term .tb .r{ background:#ff5f56; } .term .tb .y{ background:#ffbd2e; } .term .tb .g{ background:#27c93f; }
+  .term .tb .lbl{ margin-left:8px; font-size:.72rem; color:#7d8590; }
+  .term .body{ padding:18px 20px 0; font-size:.87rem; line-height:1.9; max-height:280px; overflow-y:auto; cursor:text; }
+  .term .body::-webkit-scrollbar{ width:8px; }
+  .term .body::-webkit-scrollbar-thumb{ background:#30363d; border-radius:99px; }
+  .term .p{ color:#3fb950; font-weight:700; }
+  .term .cmdtxt{ color:#e6edf3; font-weight:700; }
+  .term .out{ color:#7d8590; white-space:pre-wrap; }
+  .term .out a{ color:#79c0ff; }
+  .term .grn{ color:#3fb950; font-weight:700; }
+  .term .echoline{ color:#e6edf3; }
+  .term .dotstat{ display:inline-block; width:8px; height:8px; border-radius:50%; background:#3fb950; margin-right:8px; box-shadow:0 0 6px #3fb950; }
+  .term .inputline{
+    display:flex; align-items:center; gap:8px;
+    padding:10px 20px 16px; cursor:text;
+  }
+  .term .inputline input{
+    flex:1; background:transparent; border:none; outline:none;
+    color:#e6edf3; font-family:'JetBrains Mono', monospace; font-size:.87rem;
+    caret-color:#3fb950; padding:0;
+  }
+  .term.pulse{ animation:termpulse 1.4s ease; }
+  @keyframes termpulse{ 0%,100%{ box-shadow:0 30px 60px -30px rgba(0,0,0,.5);} 30%{ box-shadow:0 0 0 2px #3fb950, 0 30px 60px -30px rgba(0,0,0,.5);} }
+  .btn.pulse{ animation:btnpulse 1.4s ease 2; }
+  @keyframes btnpulse{ 0%,100%{ box-shadow:none;} 50%{ box-shadow:0 0 0 4px color-mix(in srgb, var(--green) 35%, transparent);} }
+
+  /* ---------- sections ---------- */
+  section{ padding:56px 0; border-top:1px solid var(--line); }
+  .sec-label{
+    font-family:'JetBrains Mono', monospace; font-size:.78rem; color:var(--text-low);
+    margin-bottom:8px; letter-spacing:.02em;
+  }
+  .sec-title{ font-size:1.6rem; font-weight:700; margin-bottom:22px; }
+
+  /* about */
+  #about p{ color:var(--text-mid); font-size:1.02rem; }
+  #about p + p{ margin-top:14px; }
+
+  /* experience */
+  .job{ display:grid; grid-template-columns:170px 1fr; gap:22px; padding:22px 0; border-top:1px solid var(--line); }
+  .job:first-of-type{ border-top:none; }
+  @media (max-width:640px){ .job{ grid-template-columns:1fr; gap:6px; } }
+  .job .when{ font-family:'JetBrains Mono', monospace; font-size:.8rem; color:var(--text-low); padding-top:3px; }
+  .job h3{ font-size:1.08rem; font-weight:700; }
+  .job .org{ color:var(--green); font-weight:600; }
+  .job .place{ color:var(--text-mid); font-size:.85rem; margin-top:2px; margin-bottom:10px; }
+  .job ul{ margin:0; padding-left:18px; color:var(--text-mid); font-size:.94rem; }
+  .job ul li + li{ margin-top:5px; }
+  .job.current{ position:relative; }
+  .job.current::before{
+    content:"CURRENT"; position:absolute; right:0; top:22px;
+    font-family:'JetBrains Mono', monospace; font-size:.65rem; font-weight:700;
+    color:var(--green); border:1px solid color-mix(in srgb, var(--green) 40%, transparent);
+    padding:3px 8px; border-radius:99px;
+  }
+
+  /* skills */
+  .skill-group{ margin-bottom:18px; }
+  .skill-group .k{ font-family:'JetBrains Mono', monospace; font-size:.78rem; color:var(--text-low); width:150px; display:inline-block; vertical-align:top; }
+  .skill-group .tags{ display:inline-flex; flex-wrap:wrap; gap:8px; width:calc(100% - 160px); vertical-align:top; }
+  @media (max-width:640px){
+    .skill-group .k{ display:block; width:auto; margin-bottom:8px; }
+    .skill-group .tags{ width:100%; }
+  }
+  .tag{
+    font-family:'JetBrains Mono', monospace; font-size:.78rem;
+    padding:5px 10px; border:1px solid var(--line); border-radius:6px;
+    color:var(--text-hi); background:var(--surface);
+  }
+
+  /* projects */
+  .proj-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  @media (max-width:640px){ .proj-grid{ grid-template-columns:1fr; } }
+  .card{
+    border:1px solid var(--line); border-radius:10px; padding:18px 20px;
+    background:var(--surface); box-shadow:var(--shadow);
+  }
+  .card h3{ font-size:1rem; font-weight:700; margin-bottom:6px; }
+  .card h3 a{ color:var(--text-hi); }
+  .card p{ color:var(--text-mid); font-size:.92rem; margin:0 0 10px; }
+  .card .stack{ display:flex; flex-wrap:wrap; gap:6px; }
+  .card .stack span{ font-family:'JetBrains Mono', monospace; font-size:.7rem; color:var(--text-low); }
+  .card .stack span:not(:last-child)::after{ content:"·"; margin-left:6px; color:var(--text-low); }
+
+  /* education / certs */
+  .edu-row{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:18px; }
+  .edu-row .deg{ font-weight:700; font-size:1.02rem; }
+  .edu-row .meta{ color:var(--text-mid); font-size:.9rem; margin-top:3px; }
+  .courses{ color:var(--text-low); font-size:.85rem; }
+  .certs{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .cert{
+    font-size:.78rem; font-weight:600; padding:5px 11px; border-radius:99px;
+    background:color-mix(in srgb, var(--blue) 12%, transparent);
+    color:var(--keyblue); border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);
+  }
+  .langs{ display:flex; gap:26px; margin-top:22px; flex-wrap:wrap; }
+  .langs div{ font-size:.9rem; }
+  .langs b{ display:block; font-size:.75rem; color:var(--text-low); font-weight:600; text-transform:uppercase; letter-spacing:.03em; margin-bottom:3px; }
+
+  /* contact / footer */
+  footer{ padding:60px 0 70px; text-align:center; }
+  footer .tagline{
+    font-family:'JetBrains Mono', monospace; font-weight:700; color:var(--green);
+    font-size:1.1rem; margin-bottom:10px;
+  }
+  footer h2{ font-size:1.7rem; font-weight:700; margin-bottom:14px; }
+  footer p{ color:var(--text-mid); margin-bottom:26px; }
+  footer .cta-row{ justify-content:center; }
+  footer .fine{ margin-top:50px; color:var(--text-low); font-size:.8rem; }
+
+  /* scroll reveal */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .badge .dot{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+
+<canvas id="netbg" aria-hidden="true"></canvas>
+<div class="page">
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> ~/halil-burak-yildirim</div>
+    <nav class="navlinks">
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#experience" data-i18n="navExperience">Experience</a>
+      <a href="#skills" data-i18n="navSkills">Skills</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+      <button id="langToggle" type="button" aria-label="Switch language">EN</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="badge"><span class="dot"></span> <span data-i18n="badge">Open to new opportunities</span></span>
+      <h1>Halil Burak Yıldırım</h1>
+      <div class="tagline" data-i18n="tagline">IT mi? Halil Burak burada.</div>
+      <p class="lead" data-i18n="heroLead">L2/L3 Technical Support &amp; System Integration Specialist — İstanbul. Yayıncılık sektöründe 7 büyük Türk TV kanalının kritik altyapısını ayakta tutuyorum; şimdi network mühendisliği ve altyapı operasyonlarında büyüyeceğim yeni bir ekip arıyorum.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:h.burak6787@gmail.com" data-i18n="emailCta">✉ E-posta gönder</a>
+        <a class="btn" href="https://linkedin.com/in/halil-burak-yildirim-46897a1a7" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/LastMohikan" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="term" id="term">
+      <div class="tb"><span class="d r"></span><span class="d y"></span><span class="d g"></span><span class="lbl">halil@istanbul: ~</span></div>
+      <div class="body" id="termBody">
+        <div><span class="p">$</span> <span class="cmdtxt">whoami</span></div>
+        <div class="out">halil.burak.yildirim</div>
+        <div><span class="p">$</span> <span class="cmdtxt">status</span></div>
+        <div class="out"><span class="dotstat"></span>online — İstanbul, TR</div>
+        <div><span class="p">$</span> <span class="cmdtxt">cat</span> role.txt</div>
+        <div class="out">IT Specialist · Broadcast &amp; Enterprise Systems</div>
+        <div><span class="p">$</span> <span class="grn">available_for = "network engineering, infra ops"</span></div>
+        <div class="out" data-i18n="termTry">Dene: <span class="grn">help</span></div>
+      </div>
+      <div class="inputline" id="termInputLine">
+        <span class="p">$</span>
+        <input id="termInput" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap prose reveal">
+    <div class="sec-label">~/about.md</div>
+    <h2 class="sec-title" data-i18n="aboutTitle">Kısaca</h2>
+    <p data-i18n="aboutP1">Management Information Systems mezunuyum; ağ altyapısı, sistem yönetimi ve yayıncılık teknolojilerinde uygulamalı deneyime sahibim. Üniversitede switch/VLAN/DNS yapılandırması, Linux sistemleri ve Wazuh, OpenVAS, Graylog, Elasticsearch, Grafana gibi izleme araçlarıyla laboratuvar tecrübesi edindim.</p>
+    <p data-i18n="aboutP2">Şu anda iSOFT'ta, yüksek erişilebilirlik gerektiren kurumsal Media Asset Management (MAM) ve yayın otomasyon sistemleri için L2/L3 teknik destek sağlıyorum: log analizinden Microsoft SQL Server tanılamaya, Elasticsearch/Kibana sorun gidermeden dağıtım ve teknik dokümantasyona kadar uçtan uca sorumluluk alıyorum.</p>
+    <p data-i18n="aboutP3">Hedefim network mühendisliği, sistem yönetimi veya altyapı operasyonları alanında güvenilir ve yüksek erişilebilirlikli ortamlara katkı sağlayacağım bir kariyer inşa etmek.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="sec-label">~/experience</div>
+    <h2 class="sec-title" data-i18n="expTitle">Deneyim</h2>
+
+    <div class="job current">
+      <div class="when" data-i18n="job1When">Ocak 2026 – Halen</div>
+      <div>
+        <h3>L2/L3 Technical Support &amp; System Integration Specialist</h3>
+        <div class="org">iSOFT</div>
+        <div class="place">İstanbul</div>
+        <ul data-i18n="job1Bullets">
+          <li>Kurumsal MAM ve yayın otomasyon sistemleri için production/test ortamlarında L2/L3 operasyonel destek</li>
+          <li>Log analizi ve kök neden araştırmasıyla uygulama/entegrasyon/altyapı sorunlarının çözümü</li>
+          <li>Microsoft SQL Server tanılama, Elasticsearch &amp; Kibana ile indexleme/performans analizi</li>
+          <li>Active Directory, IIS, Windows Server bileşenlerinin yönetimi</li>
+          <li>SmartPlay, MediaDeck 7000, Provys, VSX, BXF yayın platformları için entegrasyon desteği</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when" data-i18n="job2When">Tem 2025 – Halen</div>
+      <div>
+        <h3>Software Tester &amp; Feedback Analyst</h3>
+        <div class="org">Turkish Education Foundation (TEV)</div>
+        <div class="place" data-i18n="job2Place">Uzaktan · TEV Obigenç projesi</div>
+        <ul data-i18n="job2Bullets">
+          <li>Mobil uygulama testleri, hata/kullanılabilirlik raporlama ve yapılandırılmış geri bildirim</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when" data-i18n="job3When">Kas 2024 – Haz 2025</div>
+      <div>
+        <h3>IT Intern</h3>
+        <div class="org" data-i18n="job3Org">Bilecik Şeyh Edebali Üniversitesi (Rektörlük)</div>
+        <div class="place">Bilecik</div>
+        <ul data-i18n="job3Bullets">
+          <li>Temel teknik destek, sistem analizi raporları ve altyapı ihtiyaçlarının tespiti</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when" data-i18n="job4When">Haz 2024 – Ağu 2024</div>
+      <div>
+        <h3>Web Developer Intern</h3>
+        <div class="org">Hempa Children's Association</div>
+        <div class="place">Ankara</div>
+        <ul data-i18n="job4Bullets">
+          <li>Wix üzerinde site yenileme, SEO ve mobil uyumluluk iyileştirmeleri, bağış/blog entegrasyonu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="sec-label">~/skills</div>
+    <h2 class="sec-title" data-i18n="skillsTitle">Yetkinlikler</h2>
+
+    <div class="skill-group"><span class="k">Operating Systems</span><span class="tags">
+      <span class="tag">Windows Server</span><span class="tag">Linux (Ubuntu)</span>
+    </span></div>
+    <div class="skill-group"><span class="k">Networking</span><span class="tags">
+      <span class="tag">TCP/IP</span><span class="tag">VLAN</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">Routing &amp; Switching</span>
+    </span></div>
+    <div class="skill-group"><span class="k">System Admin</span><span class="tags">
+      <span class="tag">Active Directory</span><span class="tag">IIS</span><span class="tag">Windows Services</span><span class="tag">REST Services</span>
+    </span></div>
+    <div class="skill-group"><span class="k">Databases</span><span class="tags">
+      <span class="tag">Microsoft SQL Server</span><span class="tag">SQL</span><span class="tag">DB Normalization</span>
+    </span></div>
+    <div class="skill-group"><span class="k">Monitoring</span><span class="tags">
+      <span class="tag">Elasticsearch</span><span class="tag">Kibana</span><span class="tag">Graylog</span><span class="tag">Grafana</span><span class="tag">Wazuh</span><span class="tag">OpenVAS</span>
+    </span></div>
+    <div class="skill-group"><span class="k">Broadcast</span><span class="tags">
+      <span class="tag">MAM</span><span class="tag">SmartPlay</span><span class="tag">MediaDeck 7000</span><span class="tag">Provys</span><span class="tag">VSX</span><span class="tag">BXF</span>
+    </span></div>
+    <div class="skill-group"><span class="k">Programming</span><span class="tags">
+      <span class="tag">Python</span><span class="tag">C#</span><span class="tag">C++</span><span class="tag">R</span><span class="tag">HTML5/CSS3</span>
+    </span></div>
+    <div class="skill-group"><span class="k">Tools</span><span class="tags">
+      <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Visual Studio</span><span class="tag">draw.io</span>
+    </span></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap reveal">
+    <div class="sec-label">~/projects</div>
+    <h2 class="sec-title" data-i18n="projectsTitle">Projeler</h2>
+    <div class="proj-grid">
+      <div class="card">
+        <h3><a href="https://github.com/LastMohikan/Esp32_Ta-inir_Hava_Durumu_cihazi" target="_blank" rel="noopener">ESP32 Weather Station</a></h3>
+        <p data-i18n="proj1Desc">ESP32 üzerinde çalışan taşınabilir IoT hava durumu izleme cihazı.</p>
+        <div class="stack"><span>C++</span><span>Arduino IDE</span><span>ESP32</span><span>IoT</span></div>
+      </div>
+      <div class="card">
+        <h3><a href="https://github.com/LastMohikan/Esp32-marauder" target="_blank" rel="noopener">ESP32 Network Penetration</a></h3>
+        <p data-i18n="proj2Desc">ESP32 tabanlı kablosuz ağ güvenlik testi aracı.</p>
+        <div class="stack"><span>C++</span><span>ESP32</span><span>Wi-Fi Security</span></div>
+      </div>
+      <div class="card">
+        <h3><a href="https://github.com/LastMohikan/Hackrf-arduino-kumanda-tespit-test" target="_blank" rel="noopener">HackRF One Anomaly Detector</a></h3>
+        <p data-i18n="proj3Desc">RF sinyal anomali tespiti üzerine deneysel bir çalışma.</p>
+        <div class="stack"><span>HackRF</span><span>Arduino</span><span>SDR</span></div>
+      </div>
+      <div class="card">
+        <h3><a href="https://github.com/LastMohikan/Pdf-ozetleyici" target="_blank" rel="noopener">PDF Summarizer</a></h3>
+        <p data-i18n="proj4Desc">Otomatik PDF metin özetleme aracı.</p>
+        <div class="stack"><span>Python</span></div>
+      </div>
+      <div class="card">
+        <h3><a href="https://github.com/LastMohikan/Formula1-yarislari-pit-stop-yarisa-etki-tahmini-R" target="_blank" rel="noopener">F1 Pit Stop Impact Analysis</a></h3>
+        <p data-i18n="proj5Desc">Pit stopların yarış sonuçlarına etkisinin istatistiksel analizi.</p>
+        <div class="stack"><span>R</span><span>Data Analysis</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap reveal">
+    <div class="sec-label">~/education</div>
+    <h2 class="sec-title" data-i18n="eduTitle">Eğitim &amp; Sertifikalar</h2>
+    <div class="edu-row">
+      <div>
+        <div class="deg">Management Information Systems, B.Sc.</div>
+        <div class="meta" data-i18n="eduMeta">Bilecik Şeyh Edebali Üniversitesi · Haziran 2025 · GPA 3.15/4.00</div>
+      </div>
+    </div>
+    <div class="courses" data-i18n="eduCourses">İlgili dersler: Computer Networks and Security, Information Systems Security, System Analysis and Design, Data and Information Management, Artificial Intelligence, Human–Computer Interaction</div>
+    <div class="certs" data-i18n="eduCerts">
+      <span class="cert">Google · Digital Marketing</span>
+      <span class="cert">Microsoft · Solution Associate</span>
+      <span class="cert">IBM · AI Services</span>
+      <span class="cert">Akbank / Global AI Hub · Python Bootcamp</span>
+      <span class="cert">T.C. Cumhurbaşkanlığı · Introduction to AI</span>
+      <span class="cert">TEKNOFEST · Katılım</span>
+    </div>
+    <div class="langs" data-i18n="eduLangs">
+      <div><b>Türkçe</b>Anadil</div>
+      <div><b>İngilizce</b>B2 — Orta-üstü</div>
+      <div><b>Almanca</b>A1 — Başlangıç</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap reveal">
+    <div class="tagline" data-i18n="tagline">IT mi? Halil Burak burada.</div>
+    <h2 data-i18n="footerTitle">Birlikte çalışalım.</h2>
+    <p data-i18n="footerP">Network mühendisliği, sistem yönetimi veya altyapı operasyonları tarafında yeni fırsatlara açığım — İstanbul merkezli, uzaktan/hibrit uyumlu.</p>
+    <div class="cta-row">
+      <a class="btn primary" id="emailBtn" href="mailto:h.burak6787@gmail.com">✉ h.burak6787@gmail.com</a>
+      <a class="btn" href="https://linkedin.com/in/halil-burak-yildirim-46897a1a7" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/LastMohikan" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="fine" data-i18n="footerFine">Halil Burak Yıldırım — İstanbul, Türkiye</div>
+  </div>
+</footer>
+</div>
+
+<script>
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // ---------------------------------------------------------- i18n
+  var I18N = {
+    tr: {
+      navAbout: "About", navExperience: "Experience", navSkills: "Skills", navProjects: "Projects", navContact: "Contact",
+      badge: "Yeni fırsatlara açığım",
+      tagline: "IT mi? Halil Burak burada.",
+      heroLead: "L2/L3 Technical Support &amp; System Integration Specialist — İstanbul. Yayıncılık sektöründe 7 büyük Türk TV kanalının kritik altyapısını ayakta tutuyorum; şimdi network mühendisliği ve altyapı operasyonlarında büyüyeceğim yeni bir ekip arıyorum.",
+      emailCta: "✉ E-posta gönder",
+      termTry: 'Dene: <span class="grn">help</span>',
+      aboutTitle: "Kısaca",
+      aboutP1: "Management Information Systems mezunuyum; ağ altyapısı, sistem yönetimi ve yayıncılık teknolojilerinde uygulamalı deneyime sahibim. Üniversitede switch/VLAN/DNS yapılandırması, Linux sistemleri ve Wazuh, OpenVAS, Graylog, Elasticsearch, Grafana gibi izleme araçlarıyla laboratuvar tecrübesi edindim.",
+      aboutP2: "Şu anda iSOFT'ta, yüksek erişilebilirlik gerektiren kurumsal Media Asset Management (MAM) ve yayın otomasyon sistemleri için L2/L3 teknik destek sağlıyorum: log analizinden Microsoft SQL Server tanılamaya, Elasticsearch/Kibana sorun gidermeden dağıtım ve teknik dokümantasyona kadar uçtan uca sorumluluk alıyorum.",
+      aboutP3: "Hedefim network mühendisliği, sistem yönetimi veya altyapı operasyonları alanında güvenilir ve yüksek erişilebilirlikli ortamlara katkı sağlayacağım bir kariyer inşa etmek.",
+      expTitle: "Deneyim",
+      job1When: "Ocak 2026 – Halen",
+      job1Bullets: "<li>Kurumsal MAM ve yayın otomasyon sistemleri için production/test ortamlarında L2/L3 operasyonel destek</li><li>Log analizi ve kök neden araştırmasıyla uygulama/entegrasyon/altyapı sorunlarının çözümü</li><li>Microsoft SQL Server tanılama, Elasticsearch &amp; Kibana ile indexleme/performans analizi</li><li>Active Directory, IIS, Windows Server bileşenlerinin yönetimi</li><li>SmartPlay, MediaDeck 7000, Provys, VSX, BXF yayın platformları için entegrasyon desteği</li>",
+      job2When: "Tem 2025 – Halen",
+      job2Place: "Uzaktan · TEV Obigenç projesi",
+      job2Bullets: "<li>Mobil uygulama testleri, hata/kullanılabilirlik raporlama ve yapılandırılmış geri bildirim</li>",
+      job3When: "Kas 2024 – Haz 2025",
+      job3Org: "Bilecik Şeyh Edebali Üniversitesi (Rektörlük)",
+      job3Bullets: "<li>Temel teknik destek, sistem analizi raporları ve altyapı ihtiyaçlarının tespiti</li>",
+      job4When: "Haz 2024 – Ağu 2024",
+      job4Bullets: "<li>Wix üzerinde site yenileme, SEO ve mobil uyumluluk iyileştirmeleri, bağış/blog entegrasyonu</li>",
+      skillsTitle: "Yetkinlikler",
+      projectsTitle: "Projeler",
+      proj1Desc: "ESP32 üzerinde çalışan taşınabilir IoT hava durumu izleme cihazı.",
+      proj2Desc: "ESP32 tabanlı kablosuz ağ güvenlik testi aracı.",
+      proj3Desc: "RF sinyal anomali tespiti üzerine deneysel bir çalışma.",
+      proj4Desc: "Otomatik PDF metin özetleme aracı.",
+      proj5Desc: "Pit stopların yarış sonuçlarına etkisinin istatistiksel analizi.",
+      eduTitle: "Eğitim &amp; Sertifikalar",
+      eduMeta: "Bilecik Şeyh Edebali Üniversitesi · Haziran 2025 · GPA 3.15/4.00",
+      eduCourses: "İlgili dersler: Computer Networks and Security, Information Systems Security, System Analysis and Design, Data and Information Management, Artificial Intelligence, Human–Computer Interaction",
+      eduCerts: '<span class="cert">Google · Digital Marketing</span><span class="cert">Microsoft · Solution Associate</span><span class="cert">IBM · AI Services</span><span class="cert">Akbank / Global AI Hub · Python Bootcamp</span><span class="cert">T.C. Cumhurbaşkanlığı · Introduction to AI</span><span class="cert">TEKNOFEST · Katılım</span>',
+      eduLangs: "<div><b>Türkçe</b>Anadil</div><div><b>İngilizce</b>B2 — Orta-üstü</div><div><b>Almanca</b>A1 — Başlangıç</div>",
+      footerTitle: "Birlikte çalışalım.",
+      footerP: "Network mühendisliği, sistem yönetimi veya altyapı operasyonları tarafında yeni fırsatlara açığım — İstanbul merkezli, uzaktan/hibrit uyumlu.",
+      footerFine: "Halil Burak Yıldırım — İstanbul, Türkiye"
+    },
+    en: {
+      navAbout: "About", navExperience: "Experience", navSkills: "Skills", navProjects: "Projects", navContact: "Contact",
+      badge: "Open to new opportunities",
+      tagline: "Need IT? Halil Burak's here.",
+      heroLead: "L2/L3 Technical Support &amp; System Integration Specialist — Istanbul. I keep the critical infrastructure of 7 major Turkish TV channels running; now looking for a new team to grow with in network engineering and infrastructure operations.",
+      emailCta: "✉ Email me",
+      termTry: 'Try: <span class="grn">help</span>',
+      aboutTitle: "About",
+      aboutP1: "I'm a Management Information Systems graduate with hands-on experience in network infrastructure, system administration and broadcast technologies. During university I got lab experience in switch/VLAN/DNS configuration, Linux systems and monitoring tools like Wazuh, OpenVAS, Graylog, Elasticsearch and Grafana.",
+      aboutP2: "I currently provide L2/L3 technical support at iSOFT for enterprise Media Asset Management (MAM) and broadcast automation systems that require high availability: everything from log analysis and Microsoft SQL Server diagnostics to Elasticsearch/Kibana troubleshooting, deployment and technical documentation.",
+      aboutP3: "My goal is to build a career in network engineering, system administration or infrastructure operations, contributing to reliable, highly available environments.",
+      expTitle: "Experience",
+      job1When: "Jan 2026 – Present",
+      job1Bullets: "<li>L2/L3 operational support for enterprise MAM and broadcast automation systems across production/test environments</li><li>Resolving application/integration/infrastructure issues through log analysis and root-cause investigation</li><li>Microsoft SQL Server diagnostics, Elasticsearch &amp; Kibana indexing/performance analysis</li><li>Managing Active Directory, IIS and Windows Server components</li><li>Integration support for SmartPlay, MediaDeck 7000, Provys, VSX, BXF broadcast platforms</li>",
+      job2When: "Jul 2025 – Present",
+      job2Place: "Remote · TEV Obigenç project",
+      job2Bullets: "<li>Mobile app testing, bug/usability reporting and structured feedback</li>",
+      job3When: "Nov 2024 – Jun 2025",
+      job3Org: "Bilecik Şeyh Edebali University (Rectorate)",
+      job3Bullets: "<li>Entry-level technical support, system analysis reports and identifying infrastructure needs</li>",
+      job4When: "Jun 2024 – Aug 2024",
+      job4Bullets: "<li>Website revamp on Wix, SEO and mobile-compatibility improvements, donation/blog integration</li>",
+      skillsTitle: "Skills",
+      projectsTitle: "Projects",
+      proj1Desc: "A portable IoT weather-monitoring device built on ESP32.",
+      proj2Desc: "An ESP32-based wireless network security testing tool.",
+      proj3Desc: "An experimental study on RF signal anomaly detection.",
+      proj4Desc: "An automated PDF text summarization tool.",
+      proj5Desc: "A statistical analysis of how pit stops affect race outcomes.",
+      eduTitle: "Education &amp; Certificates",
+      eduMeta: "Bilecik Şeyh Edebali University · June 2025 · GPA 3.15/4.00",
+      eduCourses: "Relevant courses: Computer Networks and Security, Information Systems Security, System Analysis and Design, Data and Information Management, Artificial Intelligence, Human–Computer Interaction",
+      eduCerts: '<span class="cert">Google · Digital Marketing</span><span class="cert">Microsoft · Solution Associate</span><span class="cert">IBM · AI Services</span><span class="cert">Akbank / Global AI Hub · Python Bootcamp</span><span class="cert">Presidency of Türkiye · Introduction to AI</span><span class="cert">TEKNOFEST · Participation</span>',
+      eduLangs: "<div><b>Turkish</b>Native</div><div><b>English</b>B2 — Upper-intermediate</div><div><b>German</b>A1 — Beginner</div>",
+      footerTitle: "Let's work together.",
+      footerP: "Open to new opportunities in network engineering, system administration or infrastructure operations — based in Istanbul, open to remote/hybrid.",
+      footerFine: "Halil Burak Yıldırım — Istanbul, Türkiye"
+    }
+  };
+
+  function applyLang(lang){
+    window.CURRENT_LANG = lang;
+    try{ localStorage.setItem('pf_lang', lang); }catch(e){}
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(I18N[lang][key] !== undefined) el.innerHTML = I18N[lang][key];
+    });
+    var btn = document.getElementById('langToggle');
+    if(btn) btn.textContent = lang === 'tr' ? 'EN' : 'TR';
+  }
+
+  (function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('pf_lang'); }catch(e){}
+    var initial = saved || (((navigator.language || '').toLowerCase().indexOf('tr') === 0) ? 'tr' : 'en');
+    applyLang(initial);
+    var btn = document.getElementById('langToggle');
+    if(btn){
+      btn.addEventListener('click', function(){
+        applyLang(window.CURRENT_LANG === 'tr' ? 'en' : 'tr');
+      });
+    }
+  })();
+
+  // ---------------------------------------------------------- network background
+  (function(){
+    var canvas = document.getElementById('netbg');
+    var ctx = canvas.getContext('2d');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var W, H, DPR;
+    var nodes = [];
+    var packets = [];
+    var mouse = { x: -9999, y: -9999, active: false };
+
+    function cssVar(name){
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+    function hexToRgb(hex){
+      hex = hex.replace('#','');
+      if(hex.length === 3) hex = hex.split('').map(function(c){ return c+c; }).join('');
+      var n = parseInt(hex, 16);
+      return [(n>>16)&255, (n>>8)&255, n&255];
+    }
+
+    function resize(){
+      DPR = Math.min(2, window.devicePixelRatio || 1);
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      canvas.style.width = W+'px'; canvas.style.height = H+'px';
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+      var target = Math.min(80, Math.max(28, Math.floor((W*H)/16000)));
+      nodes = [];
+      for(var i=0;i<target;i++){
+        nodes.push({
+          x: Math.random()*W, y: Math.random()*H,
+          vx: (Math.random()-0.5)*0.18, vy: (Math.random()-0.5)*0.18
+        });
+      }
+    }
+
+    function spawnPacket(){
+      var LINK = 130;
+      var candidates = [];
+      for(var i=0;i<nodes.length;i++){
+        for(var j=i+1;j<nodes.length;j++){
+          var dx = nodes[i].x-nodes[j].x, dy = nodes[i].y-nodes[j].y;
+          if(dx*dx+dy*dy < LINK*LINK) candidates.push([i,j]);
+        }
+      }
+      if(!candidates.length) return;
+      var pick = candidates[Math.floor(Math.random()*candidates.length)];
+      packets.push({ a: pick[0], b: pick[1], t: 0 });
+    }
+
+    var matrixUntil = 0;
+    var matrixCols = null;
+    function initMatrix(){
+      var size = 16;
+      var count = Math.ceil(W/size);
+      matrixCols = [];
+      for(var i=0;i<count;i++){
+        matrixCols.push({ y: Math.random()*-H, speed: 3+Math.random()*5, ch: '' });
+      }
+    }
+    window.__triggerMatrix = function(ms){
+      matrixUntil = performance.now() + (ms || 2600);
+      initMatrix();
+    };
+
+    function drawMatrix(greenRgb){
+      var size = 16;
+      ctx.fillStyle = 'rgba(10,14,19,0.35)';
+      ctx.fillRect(0,0,W,H);
+      ctx.font = size+'px "JetBrains Mono", monospace';
+      var glyphs = '01アイウエオカキクケコ';
+      for(var i=0;i<matrixCols.length;i++){
+        var c = matrixCols[i];
+        var ch = glyphs[Math.floor(Math.random()*glyphs.length)];
+        ctx.fillStyle = 'rgba('+greenRgb[0]+','+greenRgb[1]+','+greenRgb[2]+',0.9)';
+        ctx.fillText(ch, i*size, c.y);
+        c.y += c.speed;
+        if(c.y > H + size) c.y = Math.random()*-200;
+      }
+    }
+
+    var lastPacket = 0;
+    function step(ts){
+      if(document.hidden){ requestAnimationFrame(step); return; }
+      var greenRgb0 = hexToRgb(cssVar('--green') || '#3fb950');
+      if(performance.now() < matrixUntil && matrixCols){
+        drawMatrix(greenRgb0);
+        requestAnimationFrame(step);
+        return;
+      }
+      ctx.clearRect(0,0,W,H);
+      var lineRgb = hexToRgb(cssVar('--text-low') || '#8c959f');
+      var greenRgb = hexToRgb(cssVar('--green') || '#3fb950');
+      var LINK = 130;
+
+      for(var i=0;i<nodes.length;i++){
+        var n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if(n.x < 0 || n.x > W) n.vx *= -1;
+        if(n.y < 0 || n.y > H) n.vy *= -1;
+        n.x = Math.max(0, Math.min(W, n.x));
+        n.y = Math.max(0, Math.min(H, n.y));
+      }
+
+      var all = nodes.slice();
+      var mouseIdx = -1;
+      if(mouse.active){ mouseIdx = all.length; all.push({x:mouse.x, y:mouse.y}); }
+
+      ctx.lineWidth = 1;
+      for(var i=0;i<all.length;i++){
+        for(var j=i+1;j<all.length;j++){
+          var dx = all[i].x-all[j].x, dy = all[i].y-all[j].y;
+          var d2 = dx*dx+dy*dy;
+          if(d2 < LINK*LINK){
+            var a = 1 - Math.sqrt(d2)/LINK;
+            var isMouse = (i===mouseIdx || j===mouseIdx);
+            var col = isMouse ? greenRgb : lineRgb;
+            ctx.strokeStyle = 'rgba('+col[0]+','+col[1]+','+col[2]+','+(a*(isMouse?0.55:0.28))+')';
+            ctx.beginPath();
+            ctx.moveTo(all[i].x, all[i].y);
+            ctx.lineTo(all[j].x, all[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      ctx.fillStyle = 'rgba('+lineRgb[0]+','+lineRgb[1]+','+lineRgb[2]+',0.55)';
+      for(var i=0;i<nodes.length;i++){
+        ctx.beginPath();
+        ctx.arc(nodes[i].x, nodes[i].y, 1.6, 0, Math.PI*2);
+        ctx.fill();
+      }
+      if(mouse.active){
+        ctx.fillStyle = 'rgba('+greenRgb[0]+','+greenRgb[1]+','+greenRgb[2]+',0.9)';
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, 2.6, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      if(ts - lastPacket > 550){ spawnPacket(); lastPacket = ts; }
+      packets = packets.filter(function(p){ return p.t < 1; });
+      for(var i=0;i<packets.length;i++){
+        var p = packets[i];
+        var na = nodes[p.a], nb = nodes[p.b];
+        if(!na || !nb) { p.t = 1; continue; }
+        var px = na.x + (nb.x-na.x)*p.t;
+        var py = na.y + (nb.y-na.y)*p.t;
+        ctx.fillStyle = 'rgba('+greenRgb[0]+','+greenRgb[1]+','+greenRgb[2]+',0.85)';
+        ctx.beginPath();
+        ctx.arc(px, py, 2.2, 0, Math.PI*2);
+        ctx.fill();
+        p.t += 0.02;
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    window.addEventListener('resize', resize);
+    window.addEventListener('pointermove', function(e){ mouse.x = e.clientX; mouse.y = e.clientY; mouse.active = true; });
+    window.addEventListener('pointerleave', function(){ mouse.active = false; });
+
+    resize();
+    if(reduced){
+      step(0);
+    } else {
+      requestAnimationFrame(step);
+    }
+  })();
+
+  // ---------------------------------------------------------- interactive terminal
+  (function(){
+    var body = document.getElementById('termBody');
+    var input = document.getElementById('termInput');
+    var term = document.getElementById('term');
+    var emailBtn = document.getElementById('emailBtn');
+    if(!body || !input) return;
+
+    var history = [];
+    var histPos = -1;
+
+    function scrollBottom(){ body.scrollTop = body.scrollHeight; }
+
+    function printRaw(html){
+      var div = document.createElement('div');
+      div.className = 'out';
+      div.innerHTML = html;
+      body.appendChild(div);
+      scrollBottom();
+    }
+    function printText(text){
+      var div = document.createElement('div');
+      div.className = 'out';
+      div.textContent = text;
+      body.appendChild(div);
+      scrollBottom();
+    }
+    function printEcho(text){
+      var div = document.createElement('div');
+      div.className = 'echoline';
+      var p = document.createElement('span');
+      p.className = 'p'; p.textContent = '$ ';
+      div.appendChild(p);
+      div.appendChild(document.createTextNode(text));
+      body.appendChild(div);
+      scrollBottom();
+    }
+    function goto(sel){
+      var el = document.querySelector(sel);
+      if(el) setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 300);
+    }
+
+    function L(tr, en){ return (window.CURRENT_LANG === 'en') ? en : tr; }
+
+    function buildResumeMarkdown(lang){
+      if(lang === 'en'){
+        return [
+          "# Halil Burak Yıldırım",
+          "L2/L3 Technical Support & System Integration Specialist — Istanbul, Türkiye",
+          "h.burak6787@gmail.com · linkedin.com/in/halil-burak-yildirim-46897a1a7 · github.com/LastMohikan",
+          "",
+          "## Summary",
+          "Management Information Systems graduate; IT Specialist with hands-on experience in network infrastructure, system administration and broadcast technologies. Currently provides L2/L3 technical support at iSOFT for the critical broadcast infrastructure of 7 major Turkish TV channels.",
+          "",
+          "## Experience",
+          "**L2/L3 Technical Support & System Integration Specialist — iSOFT** (Jan 2026 – Present, Istanbul)",
+          "- L2/L3 operational support for enterprise MAM and broadcast automation systems across production/test environments",
+          "- Resolving application/integration/infrastructure issues through log analysis and root-cause investigation",
+          "- Microsoft SQL Server diagnostics, Elasticsearch & Kibana indexing/performance analysis",
+          "- Managing Active Directory, IIS, Windows Server components",
+          "- Integration support for SmartPlay, MediaDeck 7000, Provys, VSX, BXF broadcast platforms",
+          "",
+          "**Software Tester & Feedback Analyst — Turkish Education Foundation (TEV)** (Jul 2025 – Present, Remote)",
+          "- Mobile app testing and structured feedback for the TEV Obigenç project",
+          "",
+          "**IT Intern — Bilecik Şeyh Edebali University (Rectorate)** (Nov 2024 – Jun 2025, Bilecik)",
+          "- Entry-level technical support, system analysis reports and identifying infrastructure needs",
+          "",
+          "**Web Developer Intern — Hempa Children's Association** (Jun 2024 – Aug 2024, Ankara)",
+          "- Website revamp on Wix, SEO and mobile-compatibility improvements, donation/blog integration",
+          "",
+          "## Skills",
+          "- **Operating Systems:** Windows Server, Linux (Ubuntu)",
+          "- **Networking:** TCP/IP, VLAN, DNS, DHCP, Routing & Switching",
+          "- **System Admin:** Active Directory, IIS, Windows Services, REST Services",
+          "- **Databases:** Microsoft SQL Server, SQL, DB Normalization",
+          "- **Monitoring:** Elasticsearch, Kibana, Graylog, Grafana, Wazuh, OpenVAS",
+          "- **Broadcast:** MAM, SmartPlay, MediaDeck 7000, Provys, VSX, BXF",
+          "- **Programming:** Python, C#, C++, R, HTML5/CSS3",
+          "- **Tools:** Git, GitHub, Visual Studio, draw.io",
+          "",
+          "## Education",
+          "B.Sc. Management Information Systems — Bilecik Şeyh Edebali University, June 2025 (GPA 3.15/4.00)",
+          "",
+          "## Certificates",
+          "Google (Digital Marketing) · Microsoft (Solution Associate) · IBM (AI Services) · Akbank/Global AI Hub (Python Bootcamp) · Presidency of Türkiye (Introduction to AI) · TEKNOFEST",
+          "",
+          "## Projects",
+          "- ESP32 Weather Station — github.com/LastMohikan/Esp32_Ta-inir_Hava_Durumu_cihazi",
+          "- ESP32 Network Penetration — github.com/LastMohikan/Esp32-marauder",
+          "- HackRF One Anomaly Detector — github.com/LastMohikan/Hackrf-arduino-kumanda-tespit-test",
+          "- PDF Summarizer — github.com/LastMohikan/Pdf-ozetleyici",
+          "- F1 Pit Stop Impact Analysis — github.com/LastMohikan/Formula1-yarislari-pit-stop-yarisa-etki-tahmini-R",
+          "",
+          "## Languages",
+          "Turkish (Native) · English (B2) · German (A1)"
+        ].join("\n");
+      }
+      return [
+        "# Halil Burak Yıldırım",
+        "L2/L3 Technical Support & System Integration Specialist — İstanbul, Türkiye",
+        "h.burak6787@gmail.com · linkedin.com/in/halil-burak-yildirim-46897a1a7 · github.com/LastMohikan",
+        "",
+        "## Özet",
+        "Management Information Systems mezunu; ağ altyapısı, sistem yönetimi ve yayıncılık teknolojilerinde uygulamalı deneyime sahip IT Specialist. Şu an iSOFT'ta, 7 büyük Türk TV kanalının kritik yayın altyapısı için L2/L3 teknik destek sağlıyor.",
+        "",
+        "## Deneyim",
+        "**L2/L3 Technical Support & System Integration Specialist — iSOFT** (Ocak 2026 – Halen, İstanbul)",
+        "- Kurumsal MAM ve yayın otomasyon sistemleri için production/test ortamlarında L2/L3 operasyonel destek",
+        "- Log analizi ve kök neden araştırmasıyla uygulama/entegrasyon/altyapı sorunlarının çözümü",
+        "- Microsoft SQL Server tanılama, Elasticsearch & Kibana ile indexleme/performans analizi",
+        "- Active Directory, IIS, Windows Server bileşenlerinin yönetimi",
+        "- SmartPlay, MediaDeck 7000, Provys, VSX, BXF yayın platformları için entegrasyon desteği",
+        "",
+        "**Software Tester & Feedback Analyst — Turkish Education Foundation (TEV)** (Tem 2025 – Halen, Uzaktan)",
+        "- TEV Obigenç projesi kapsamında mobil uygulama testleri ve yapılandırılmış geri bildirim",
+        "",
+        "**IT Intern — Bilecik Şeyh Edebali Üniversitesi (Rektörlük)** (Kas 2024 – Haz 2025, Bilecik)",
+        "- Temel teknik destek, sistem analizi raporları ve altyapı ihtiyaçlarının tespiti",
+        "",
+        "**Web Developer Intern — Hempa Children's Association** (Haz 2024 – Ağu 2024, Ankara)",
+        "- Wix üzerinde site yenileme, SEO ve mobil uyumluluk iyileştirmeleri, bağış/blog entegrasyonu",
+        "",
+        "## Yetkinlikler",
+        "- **Operating Systems:** Windows Server, Linux (Ubuntu)",
+        "- **Networking:** TCP/IP, VLAN, DNS, DHCP, Routing & Switching",
+        "- **System Admin:** Active Directory, IIS, Windows Services, REST Services",
+        "- **Databases:** Microsoft SQL Server, SQL, DB Normalization",
+        "- **Monitoring:** Elasticsearch, Kibana, Graylog, Grafana, Wazuh, OpenVAS",
+        "- **Broadcast:** MAM, SmartPlay, MediaDeck 7000, Provys, VSX, BXF",
+        "- **Programming:** Python, C#, C++, R, HTML5/CSS3",
+        "- **Tools:** Git, GitHub, Visual Studio, draw.io",
+        "",
+        "## Eğitim",
+        "B.Sc. Management Information Systems — Bilecik Şeyh Edebali Üniversitesi, Haziran 2025 (GPA 3.15/4.00)",
+        "",
+        "## Sertifikalar",
+        "Google (Digital Marketing) · Microsoft (Solution Associate) · IBM (AI Services) · Akbank/Global AI Hub (Python Bootcamp) · T.C. Cumhurbaşkanlığı (Introduction to AI) · TEKNOFEST",
+        "",
+        "## Projeler",
+        "- ESP32 Weather Station — github.com/LastMohikan/Esp32_Ta-inir_Hava_Durumu_cihazi",
+        "- ESP32 Network Penetration — github.com/LastMohikan/Esp32-marauder",
+        "- HackRF One Anomaly Detector — github.com/LastMohikan/Hackrf-arduino-kumanda-tespit-test",
+        "- PDF Summarizer — github.com/LastMohikan/Pdf-ozetleyici",
+        "- F1 Pit Stop Impact Analysis — github.com/LastMohikan/Formula1-yarislari-pit-stop-yarisa-etki-tahmini-R",
+        "",
+        "## Diller",
+        "Türkçe (Anadil) · İngilizce (B2) · Almanca (A1)"
+      ].join("\n");
+    }
+
+    function downloadCV(){
+      var lang = window.CURRENT_LANG || 'tr';
+      if(!window.claude || !window.claude.use){
+        printText(L("İndirme bu görünümde desteklenmiyor. h.burak6787@gmail.com adresinden isteyebilirsin.",
+                     "Downloads aren't supported in this view. You can request it at h.burak6787@gmail.com."));
+        return;
+      }
+      printText(L("Hazırlanıyor...", "Preparing..."));
+      window.claude.use('downloads').then(function(downloads){
+        if(!downloads){
+          printText(L("İndirme bu görünümde kullanılamıyor. h.burak6787@gmail.com adresinden isteyebilirsin.",
+                       "Downloads aren't available in this view. You can request it at h.burak6787@gmail.com."));
+          return;
+        }
+        var filename = lang === 'en' ? 'Halil_Burak_Yildirim_CV_EN.md' : 'Halil_Burak_Yildirim_CV.md';
+        return downloads.save({ filename: filename, data: buildResumeMarkdown(lang) }).then(function(){
+          printText(L("İndirildi: ", "Downloaded: ") + filename);
+        });
+      }).catch(function(err){
+        if(err && err.code === 'declined'){
+          printText(L("İndirme iptal edildi.", "Download cancelled."));
+        } else {
+          printText(L("İndirme başarısız oldu. h.burak6787@gmail.com adresinden isteyebilirsin.",
+                       "Download failed. You can request it at h.burak6787@gmail.com."));
+        }
+      });
+    }
+
+    var QA_TOPICS = [
+      { kw: ['deneyim','tecrübe','tecrube','experience','kaç yıl','kac yil','years'],
+        a: { tr: "iSOFT'ta L2/L3 Technical Support & System Integration Specialist olarak çalışıyorum (Ocak 2026'dan beri) — 7 büyük Türk TV kanalının MAM ve yayın otomasyon altyapısına destek veriyorum. Öncesinde TEV'de yazılım testi, Bilecik Şeyh Edebali Üni.'de IT intern, Hempa'da web developer intern olarak çalıştım. Detay için: experience",
+              en: "I work as an L2/L3 Technical Support & System Integration Specialist at iSOFT (since Jan 2026) — supporting the MAM and broadcast automation infrastructure of 7 major Turkish TV channels. Before that: software testing at TEV, IT intern at Bilecik Şeyh Edebali Uni., web developer intern at Hempa. Details: experience" } },
+      { kw: ['yetenek','beceri','teknoloji','skill','tech stack','stack','hangi araç','hangi arac'],
+        a: { tr: "Windows Server, Active Directory, ağ yönetimi, Microsoft SQL Server, Elasticsearch/Kibana, Linux ve Python/C# üzerinde çalışıyorum. Yayıncılık tarafında SmartPlay, MediaDeck 7000, Provys gibi MAM sistemleriyle de deneyimliyim. Detay için: skills",
+              en: "I work with Windows Server, Active Directory, networking, Microsoft SQL Server, Elasticsearch/Kibana, Linux and Python/C#. On the broadcast side I'm also experienced with MAM systems like SmartPlay, MediaDeck 7000, Provys. Details: skills" } },
+      { kw: ['eğitim','egitim','okul','üniversite','universite','mezun','education','university','degree','gpa'],
+        a: { tr: "Bilecik Şeyh Edebali Üniversitesi'nden Management Information Systems bölümünden 2025'te 3.15/4.00 ortalamayla mezun oldum.",
+              en: "I graduated from Bilecik Şeyh Edebali University's Management Information Systems program in 2025 with a 3.15/4.00 GPA." } },
+      { kw: ['nerede','şehir','sehir','lokasyon','location','where','city','uzaktan','remote','hibrit'],
+        a: { tr: "İstanbul'da yaşıyorum. Uzaktan/hibrit çalışmaya da açığım.",
+              en: "I live in Istanbul. I'm also open to remote/hybrid work." } },
+      { kw: ['maaş','maas','ücret','ucret','salary','pay','compensation'],
+        a: { tr: "Maaş beklentimi mail ya da görüşmede konuşmayı tercih ederim — buradan geçmeyelim :)",
+              en: "I'd rather discuss salary expectations over email or in an interview — let's not go there here :)" } },
+      { kw: ['müsait','musait','ne zaman başla','ne zaman basla','availability','notice','when can you'],
+        a: { tr: "Şu an iSOFT'ta çalışıyorum ama doğru fırsat için görüşmeye açığım — detayları birlikte konuşabiliriz.",
+              en: "I'm currently employed at iSOFT but open to talking about the right opportunity — happy to discuss details together." } },
+      { kw: ['neden seni','neden işe','neden ise','why should','why hire','güçlü yön','guclu yon','strength'],
+        a: { tr: "Çünkü 7 büyük TV kanalının canlı yayın altyapısını ayakta tutan sistemlere L2/L3 seviyesinde destek veriyorum — log analizinden SQL Server tanılamaya, network'ten Windows Server yönetimine uçtan uca sorumluluk alıyorum. Ve öğrenmeye çok açığım.",
+              en: "Because I provide L2/L3 support for the systems keeping 7 major TV channels on-air — end-to-end, from log analysis and SQL Server diagnostics to networking and Windows Server administration. And I'm genuinely eager to keep learning." } },
+      { kw: ['proje','project','github'],
+        a: { tr: "ESP32 Weather Station, ESP32 Network Penetration, HackRF Anomaly Detector, PDF Summarizer, F1 Pit Stop Analysis — hepsi github.com/LastMohikan adresinde. Detay için: projects",
+              en: "ESP32 Weather Station, ESP32 Network Penetration, HackRF Anomaly Detector, PDF Summarizer, F1 Pit Stop Analysis — all on github.com/LastMohikan. Details: projects" } },
+      { kw: ['sertifika','certificate','certification'],
+        a: { tr: "Google Digital Marketing, Microsoft Solution Associate, IBM AI Services, Akbank/Global AI Hub Python Bootcamp gibi sertifikalarım var.",
+              en: "I hold certificates including Google Digital Marketing, Microsoft Solution Associate, IBM AI Services, and Akbank/Global AI Hub's Python Bootcamp." } },
+      { kw: ['hobi','ilgi alanı','ilgi alani','free time','boş vakit','bos vakit'],
+        a: { tr: "Boş vakitlerimde networking, Windows Server ve sanallaştırma üzerine home-lab projeleriyle uğraşıyorum.",
+              en: "In my free time I work on home-lab projects around networking, Windows Server and virtualization." } },
+      { kw: ['dil bil','language','ingilizce','ingilizcen','almanca','german','english level'],
+        a: { tr: "Türkçe anadilim, İngilizce B2 seviyesinde, Almanca'da başlangıç (A1) seviyesindeyim.",
+              en: "Turkish is my native language, my English is B2 level, and my German is beginner (A1) level." } },
+      { kw: ['iletişim','iletisim','mail','e-posta','eposta','ulaş','ulas','contact','email','reach'],
+        a: { tr: "En hızlısı h.burak6787@gmail.com veya LinkedIn üzerinden.",
+              en: "Fastest way is h.burak6787@gmail.com or LinkedIn." } },
+      { kw: ['kimsin','sen kim','who are you','tell me about you','kendinden bahset'],
+        a: { tr: "Management Information Systems mezunu, network & sistem yönetimi odaklı bir IT Specialist'im. Şu an iSOFT'ta 7 büyük TV kanalının yayın altyapısına L2/L3 destek veriyorum. Detay için: about",
+              en: "I'm an IT Specialist focused on networking and system administration, with a Management Information Systems degree. I currently provide L2/L3 support for the broadcast infrastructure of 7 major TV channels at iSOFT. Details: about" } },
+      { kw: ['özgeçmiş','ozgecmis',' cv ','cv?','resume'],
+        a: { tr: "Tabii — indirmek için sadece 'cv' yazman yeterli.",
+              en: "Sure — just type 'cv' to download it." } }
+    ];
+
+    function findQA(lower){
+      var lang = window.CURRENT_LANG || 'tr';
+      for(var i=0;i<QA_TOPICS.length;i++){
+        var kws = QA_TOPICS[i].kw;
+        for(var j=0;j<kws.length;j++){
+          if(lower.indexOf(kws[j]) !== -1) return QA_TOPICS[i].a[lang];
+        }
+      }
+      return null;
+    }
+
+    var COMMANDS = {
+      help: function(){
+        printText(L("Komutlar: whoami, about, experience, skills, projects, education, contact, ls, cv, matrix, theme, clear\nAyrıca benimle ilgili istediğin soruyu da yazabilirsin (deneyim, maaş, lokasyon, diller, projeler...).",
+                     "Commands: whoami, about, experience, skills, projects, education, contact, ls, cv, matrix, theme, clear\nYou can also just ask me anything about myself (experience, salary, location, languages, projects...)."));
+      },
+      cv: downloadCV,
+      resume: downloadCV,
+      'özgeçmiş': downloadCV,
+      indir: downloadCV,
+      theme: function(){
+        printText(L("Zaten en havalısında: siyah. Başka seçenek yok.", "Already at its best: black. No other option."));
+      },
+      matrix: function(){
+        printText(L("Sinyale bağlanılıyor...", "Connecting to the signal..."));
+        if(window.__triggerMatrix) window.__triggerMatrix(2800);
+      },
+      'sudo rm -rf /': function(){
+        printText(L("Güzel deneme. Prod'da hiçbir şeyi silmeden önce iki kere düşünürüm — biliyorsun, log analizi bu yüzden var.",
+                     "Nice try. I think twice before deleting anything in prod — that's what log analysis is for."));
+      },
+      whoami: function(){ printText("halil.burak.yildirim"); },
+      about: function(){
+        printText(L("Management Information Systems mezunu, network & sistem yönetimi odaklı IT Specialist. Şu an iSOFT'ta 7 büyük TV kanalının yayın altyapısına L2/L3 destek veriyor.",
+                     "Management Information Systems graduate, IT Specialist focused on networking & system administration. Currently providing L2/L3 support for the broadcast infrastructure of 7 major TV channels at iSOFT."));
+        goto('#about');
+      },
+      experience: function(){
+        printText(L("iSOFT — L2/L3 Technical Support & System Integration (2026–halen)\nTEV — Software Tester & Feedback Analyst\nBilecik Şeyh Edebali Üni. — IT Intern\nHempa — Web Developer Intern",
+                     "iSOFT — L2/L3 Technical Support & System Integration (2026–present)\nTEV — Software Tester & Feedback Analyst\nBilecik Şeyh Edebali Uni. — IT Intern\nHempa — Web Developer Intern"));
+        goto('#experience');
+      },
+      skills: function(){
+        printText("Networking · Windows Server · Active Directory · SQL Server · Elasticsearch/Kibana · Linux · Python/C#");
+        goto('#skills');
+      },
+      projects: function(){
+        printRaw('ESP32 Weather Station · ESP32 Network Penetration · HackRF Anomaly Detector · PDF Summarizer · F1 Pit Stop Analysis — <a href="https://github.com/LastMohikan" target="_blank" rel="noopener">github.com/LastMohikan</a>');
+        goto('#projects');
+      },
+      education: function(){
+        printText(L("B.Sc. Management Information Systems — Bilecik Şeyh Edebali Üniversitesi, 2025 (GPA 3.15/4.00)",
+                     "B.Sc. Management Information Systems — Bilecik Şeyh Edebali University, 2025 (GPA 3.15/4.00)"));
+        goto('#education');
+      },
+      contact: function(){
+        printRaw('h.burak6787@gmail.com · <a href="https://linkedin.com/in/halil-burak-yildirim-46897a1a7" target="_blank" rel="noopener">linkedin</a> · <a href="https://github.com/LastMohikan" target="_blank" rel="noopener">github</a>');
+        goto('#contact');
+      },
+      ls: function(){
+        printText("about.md  experience/  skills/  projects/  education/  contact.sh");
+      },
+      clear: function(){ body.innerHTML = ''; },
+      'sudo hire-me': function(){
+        printText(L("[sudo] password for recruiter: ✓ granted", "[sudo] password for recruiter: ✓ granted"));
+        printText(L("Onboarding sekansı başlatılıyor...", "Initiating onboarding sequence..."));
+        if(term){ term.classList.add('pulse'); setTimeout(function(){ term.classList.remove('pulse'); }, 1400); }
+        if(emailBtn){ emailBtn.classList.add('pulse'); setTimeout(function(){ emailBtn.classList.remove('pulse'); }, 2800); }
+        goto('#contact');
+      }
+    };
+
+    function run(raw){
+      var cmd = raw.trim();
+      if(!cmd){ return; }
+      printEcho(cmd);
+      history.push(cmd); histPos = history.length;
+      var key = cmd.toLowerCase();
+      if(COMMANDS.hasOwnProperty(key)){
+        COMMANDS[key]();
+        return;
+      }
+      var lower = ' ' + key + ' ';
+      var qa = findQA(lower);
+      if(qa){ printText(qa); return; }
+
+      var looksLikeQuestion = /\?\s*$/.test(cmd) ||
+        /^(kim|ne|nerede|nasıl|nasil|kaç|kac|hangi|neden|niye|what|who|where|how|why|when|which|do|does|are|is)\b/i.test(cmd.trim());
+      if(looksLikeQuestion){
+        printText(L("Bunu bilmiyorum ama LinkedIn veya e-posta üzerinden sorabilirsin: h.burak6787@gmail.com",
+                     "I don't know that one, but you can ask via LinkedIn or email: h.burak6787@gmail.com"));
+        return;
+      }
+
+      var word = cmd.replace(/[?!.]+$/,'');
+      var pretty = word.length ? word[0].toUpperCase()+word.slice(1) : word;
+      printText(L(pretty + " mi? Halil Burak burada.", pretty + "? Halil Burak's here."));
+    }
+
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        run(input.value);
+        input.value = '';
+      } else if(e.key === 'ArrowUp'){
+        if(history.length){
+          histPos = Math.max(0, histPos-1);
+          input.value = history[histPos] || '';
+          e.preventDefault();
+        }
+      } else if(e.key === 'ArrowDown'){
+        if(history.length){
+          histPos = Math.min(history.length, histPos+1);
+          input.value = history[histPos] || '';
+          e.preventDefault();
+        }
+      }
+    });
+    if(term){
+      term.addEventListener('click', function(){ input.focus(); });
+    }
+  })();
+</script>
